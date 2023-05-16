@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+void printFact(int n){
+    
+    for(int i = 1; i <= sqrt(n); ++i)
+    {
+        if (n % i == 0){
+            
+            // If both pair of factors are equal then we just print 
+            // once, example for 100 : (a, b) : (10, 10) 
+            // 10 should be printed just once
+            if(i == n / i)
+                printf("%d, ",i);
+            
+            // else print both the pairs
+            else
+                printf("%d, %d, ",i, n/i); 
+        }
+    }
+}
+
+int main()
+{
+    int n = 100;
+    
+    printFact(n);
+}
+// Time Complexity: O(sqrt(N))
+// Space Complexity: O(1)
+// Issue : The order of factors are jumbled
